@@ -1,4 +1,9 @@
 package com.themis.ledger.domain.exception;
 
-public class AccountNotFoundException {
+import java.util.UUID;
+
+public final class AccountNotFoundException extends LedgerException{
+    public AccountNotFoundException(UUID id){
+        super("Account " + id + " Not Found");
+    }
 }
