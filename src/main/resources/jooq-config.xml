@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration>
+    <jdbc>
+        <driver>org.postgresql.Driver</driver>
+        <url>jdbc:postgresql://localhost:5432/themis_db</url>
+        <user>themis_user</user>
+        <password>themis_password</password>
+    </jdbc>
+
+    <generator>
+        <name>org.jooq.codegen.JavaGenerator</name>
+        <database>
+            <name>org.jooq.meta.postgres.PostgresDatabase</name>
+            <inputSchema>public</inputSchema>
+            <includes>.*</includes>
+            <excludes>flyway_schema_history</excludes>
+        </database>
+
+        <generate>
+            <daos>false</daos>
+            <pojos>true</pojos>
+            <records>true</records>
+            <fluentSetters>true</fluentSetters>
+            <javaTimeTypes>true</javaTimeTypes>
+        </generate>
+
+        <target>
+            <packageName>com.themis.ledger.jooq</packageName>
+            <directory>build/generated-src/jooq/main</directory>
+        </target>
+    </generator>
+</configuration>
